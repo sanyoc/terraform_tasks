@@ -7,7 +7,7 @@ resource "aws_instance" "instance" {
   ami                         = var.ami_id
   instance_type               = var.instance_size
   subnet_id                   = element(local.ec2_subnet_list, count.index)
-  security_groups             = [aws_security_group.my_vpc_sg.id]
+  vpc_security_group_ids      = [aws_security_group.my_vpc_sg.id]
   key_name                    = var.task_key
   associate_public_ip_address = true
 
