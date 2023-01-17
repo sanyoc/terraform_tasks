@@ -34,7 +34,7 @@ resource "aws_lb" "alb" {
   name               = "task-alb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.my_vpc_sg.id]
+  security_groups    = [aws_security_group.alb_sg.id]
   subnets            = local.ec2_subnet_list
   tags               = var.task_tags
 }
