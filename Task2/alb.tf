@@ -17,17 +17,12 @@ resource "aws_lb_listener" "front_end" {
 }
 
 resource "aws_lb" "taskalb" {
-  name               = "taskalb"
+  name               = "TaskALB"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.http_sg.id]
   subnets            = [aws_subnet.subnet1.id, aws_subnet.subnet2.id, aws_subnet.subnet3.id]
 
-  tags = merge(
-    var.common_tags,
-    {
-      Name = "TaskALB"
-    },
-  )
+  tags = var.common_tags    
 }
 

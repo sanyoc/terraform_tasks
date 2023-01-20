@@ -4,6 +4,6 @@ output "alb_dns_name" {
 }
 
 output "route53_dns" {
-  value       = data.aws_route53_zone.eivhomes.name_servers
+  value       = aws_route53_record.www.fqdn
   description = "Route53 DNS"
 }

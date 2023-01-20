@@ -5,8 +5,8 @@ data "aws_route53_zone" "eivhomes" {
 
 resource "aws_route53_record" "www" {
   zone_id = data.aws_route53_zone.eivhomes.zone_id
-  name    = "eivhomes.com"
-  type    = "A"
+  name    = "web"
+  type    = "CNAME"
   ttl     = "60"
    
     # alias {
